@@ -5,8 +5,8 @@
 A FPS Controller for Godot4
 
 # Feature:
-1. Controller Script Has A Simple But Well Extention FSM inside it. No Need a Lots of State Class Scripts any more. You Can Use it to Manager Your Animation State Without Extra Working.
+1. Controller Script Has A Simple But Well Extention FSM inside it. No Need a Lots of State Class Scripts any more. You Can Use it to Manager Your Animation States Without Extra Working.
 
-2. A Simple Debug UI shows FPS/State Enter/State Exit/Horizontal Velocity/Is On Floor State
+2. A Simple Debug UI shows FPS/State Enter Message/State Exit Message/Horizontal Velocity/Is On Floor State
 
 3. It Has a Simple Test Level You Can Playround
