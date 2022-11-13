@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cir161aa3ch0a"]
+
+[resource]
+resource_name = "Alpha_Body_MAT"
+albedo_color = Color(0.343355, 0.681155, 0.749665, 1)
+metallic = 1.0
+roughness = 0.6

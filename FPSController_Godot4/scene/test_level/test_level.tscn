@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://ddktcxw6mm62d"]
+
+[ext_resource type="Script" path="res://scene/test_level/sunlight.gd" id="1_mkjvu"]
+[ext_resource type="PackedScene" uid="uid://dgdilqnyvm74b" path="res://scene/prefab/fps_controller/fps_controller.tscn" id="2_l8ldj"]
+[ext_resource type="PackedScene" uid="uid://sgomnyjmbrlv" path="res://scene/map/playground.tscn" id="2_x2a44"]
+[ext_resource type="PackedScene" uid="uid://bj52bms48r7oo" path="res://scene/prefab/debug_tool/debug.tscn" id="3_cgb66"]
+[ext_resource type="PackedScene" uid="uid://tn5yo6egw87w" path="res://scene/prefab/animation_npc/animation.tscn" id="6_map7j"]
+[ext_resource type="AudioStream" uid="uid://csdrb2dnlkdsf" path="res://resource/audio/mixkit-trap-305.mp3" id="6_u2xsm"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_xyjfs"]
+radius = 16.0
+height = 32.0
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_21ao7"]
+ground_color = Color(0.713726, 0.588235, 0.439216, 1)
+
+[sub_resource type="Sky" id="Sky_ypwy1"]
+sky_material = SubResource("PhysicalSkyMaterial_21ao7")
+
+[sub_resource type="Environment" id="Environment_vn0iy"]
+background_mode = 2
+sky = SubResource("Sky_ypwy1")
+tonemap_mode = 2
+tonemap_white = 16.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4nqq3"]
+size = Vector3(500, 10, 500)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 134.702, 43.0947)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D"]
+mesh = SubResource("SphereMesh_xyjfs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.965926, -0.12941, 0.224144, 0, 0.866025, 0.5, -0.258819, 0.482963, -0.836516, 0, 13.8715, 0)
+light_energy = 2.36
+shadow_enabled = true
+shadow_normal_bias = 2.65
+directional_shadow_pancake_size = 1.0
+script = ExtResource("1_mkjvu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vn0iy")
+
+[node name="playground" parent="." instance=ExtResource("2_x2a44")]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21, 42)
+shape = SubResource("BoxShape3D_4nqq3")
+
+[node name="animation_npc" type="Node3D" parent="."]
+
+[node name="animation_npc" parent="animation_npc" instance=ExtResource("6_map7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89641, 0, 10.947)
+
+[node name="animation_npc2" parent="animation_npc" instance=ExtResource("6_map7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88122, 0, 11.1713)
+
+[node name="animation_npc3" parent="animation_npc" instance=ExtResource("6_map7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.73321, 0, 10.7016)
+
+[node name="animation_npc4" parent="animation_npc" instance=ExtResource("6_map7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80108, 0, 12.5328)
+
+[node name="animation_npc5" parent="animation_npc" instance=ExtResource("6_map7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72433, 0, 12.6703)
+
+[node name="animation_npc6" parent="animation_npc" instance=ExtResource("6_map7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.72797, 0, 13.5175)
+
+[node name="animation_npc7" parent="animation_npc" instance=ExtResource("6_map7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7437, 0, 14.403)
+
+[node name="animation_npc8" parent="animation_npc" instance=ExtResource("6_map7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.94965, 0, 14.4029)
+
+[node name="animation_npc9" parent="animation_npc" instance=ExtResource("6_map7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.97134, 0, 13.2946)
+
+[node name="animation_npc10" parent="animation_npc" instance=ExtResource("6_map7j")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -15.2614, -0.186869, -21.5461)
+
+[node name="Player" parent="." instance=ExtResource("2_l8ldj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.84695, 6.81987, -6.94604)
+floor_snap_length = 0.5
+mouse_sensitivity = 0.3
+walk_speed = 2.0
+run_speed = 10.0
+double_jump = true
+
+[node name="debug" parent="." instance=ExtResource("3_cgb66")]
+target_node = NodePath("../Player")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_u2xsm")
+autoplay = true
+
+[connection signal="body_entered" from="Area3D" to="Player" method="_on_area_3d_body_entered"]
