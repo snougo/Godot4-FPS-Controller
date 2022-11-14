@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/window_width_override=1024
+window/size/window_height_override=576
 
 [editor]
 
@@ -66,5 +66,4 @@ run={
 [rendering]
 
 renderer/rendering_method="mobile"
-scaling_3d/mode=1
-scaling_3d/scale=0.5
+environment/defaults/default_clear_color=Color(0.0745098, 0.0941176, 0.12549, 1)

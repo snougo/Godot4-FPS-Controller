@@ -1,0 +1,13 @@
+
+*.cfg
+*.cache
+*.ctex
+*.md5
+FPSController_Godot4/.DS_Store
+FPSController_Godot4/.godot/.DS_Store
+FPSController_Godot4/.godot/.gdignore
+FPSController_Godot4/.godot/editor/filesystem_cache7
+FPSController_Godot4/.godot/editor/filesystem_update4
+FPSController_Godot4/.godot/imported/mixkit-trap-305.mp3-4d67280660c7c91481491c260867a67a.mp3str
+FPSController_Godot4/.godot/uid_cache.bin
+*.Node

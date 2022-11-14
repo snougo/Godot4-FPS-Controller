@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgdilqnyvm74b"]
+[gd_scene load_steps=6 format=3 uid="uid://dgdilqnyvm74b"]
 
 [ext_resource type="Script" path="res://scene/prefab/fps_controller/fps_controller.gd" id="1_4ey75"]
 
@@ -12,6 +12,9 @@ size = Vector3(0.25, 0.3, 0.1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7bnr"]
 albedo_color = Color(0.14902, 1, 0, 1)
 disable_receive_shadows = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b3du4"]
+size = Vector3(0.3, 0.3, 0.2)
 
 [node name="fps_controller" type="CharacterBody3D"]
 script = ExtResource("1_4ey75")
@@ -32,3 +35,15 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6
 [node name="fps_camera" type="Camera3D" parent="head"]
 current = true
 fov = 90.0
+
+[node name="UpStairCast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.18)
+shape = SubResource("BoxShape3D_b3du4")
+target_position = Vector3(0, -0.14, 0)
+
+[node name="StairCast1" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.35, 0)
+
+[node name="StairCast2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.05, 0)
+target_position = Vector3(0, -0.8, 0)

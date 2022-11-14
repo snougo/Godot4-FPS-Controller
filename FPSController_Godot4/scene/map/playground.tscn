@@ -206,7 +206,7 @@ data = PackedVector3Array(-30, 0, 30, 30, 0, -30, 30, 0, 30, -30, 0, 30, -30, 0,
 [node name="playground" type="Node3D"]
 
 [node name="slope_45" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08732, 0, 2.02963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.087, -0.15, 2.03)
 mesh = SubResource("ArrayMesh_oibdy")
 surface_material_override/0 = ExtResource("1_0r6cl")
 
@@ -216,7 +216,7 @@ surface_material_override/0 = ExtResource("1_0r6cl")
 shape = SubResource("ConcavePolygonShape3D_wmio8")
 
 [node name="slope_60" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.08732, 0, 3.11404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.087, -0.15, 3.114)
 mesh = SubResource("ArrayMesh_xbehe")
 surface_material_override/0 = ExtResource("2_2cj8i")
 
@@ -226,7 +226,7 @@ surface_material_override/0 = ExtResource("2_2cj8i")
 shape = SubResource("ConcavePolygonShape3D_v5hgx")
 
 [node name="cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.29465, 1.68, 5.53999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.295, 1.53, 5.54)
 mesh = SubResource("ArrayMesh_b5ix3")
 surface_material_override/0 = ExtResource("3_s7hj2")
 
@@ -240,17 +240,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.29465, 0, 0.259998)
 mesh = SubResource("ArrayMesh_i6yjy")
 surface_material_override/0 = ExtResource("4_ob7yv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="stair02"]
+[node name="StaticBody3D" type="StaticBody3D" parent="stair02" groups=["stair"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stair02/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_xlksk")
 
 [node name="stair01" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -8.29465, 1.83, 5.54)
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -8.295, 1.67966, 5.54)
 mesh = SubResource("ArrayMesh_aws86")
 surface_material_override/0 = ExtResource("4_ob7yv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="stair01"]
+[node name="StaticBody3D" type="StaticBody3D" parent="stair01" groups=["stair"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stair01/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gvp3u")
