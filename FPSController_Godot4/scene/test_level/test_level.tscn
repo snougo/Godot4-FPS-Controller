@@ -26,10 +26,10 @@ tonemap_white = 16.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_4nqq3"]
 size = Vector3(500, 10, 500)
 
-[sub_resource type="BoxMesh" id="BoxMesh_386a0"]
-
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_evhqk"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_386a0"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -43,7 +43,6 @@ mesh = SubResource("SphereMesh_xyjfs")
 transform = Transform3D(-0.965926, -0.12941, 0.224144, 0, 0.866025, 0.5, -0.258819, 0.482963, -0.836516, 0, 13.8715, 0)
 light_energy = 2.36
 shadow_enabled = true
-shadow_normal_bias = 2.65
 directional_shadow_pancake_size = 1.0
 script = ExtResource("1_mkjvu")
 
@@ -57,6 +56,17 @@ environment = SubResource("Environment_vn0iy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21, 42)
 shape = SubResource("BoxShape3D_4nqq3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_evhqk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_386a0")
+skeleton = NodePath("../..")
 
 [node name="animation_npc" type="Node3D" parent="."]
 
@@ -100,7 +110,7 @@ visible = false
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -15.2614, -0.186869, -21.5461)
 
 [node name="Player" parent="." instance=ExtResource("2_l8ldj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004, 8.08557, -9.01683)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.983, 0.657832, -1.28588)
 floor_snap_length = 0.5
 double_jump = true
 
@@ -110,14 +120,5 @@ target_node = NodePath("../Player")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_u2xsm")
 autoplay = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_386a0")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" groups=["stair"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_evhqk")
 
 [connection signal="body_entered" from="Area3D" to="Player" method="_on_area_3d_body_entered"]

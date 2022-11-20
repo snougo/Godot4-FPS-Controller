@@ -240,7 +240,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.29465, 0, 0.259998)
 mesh = SubResource("ArrayMesh_i6yjy")
 surface_material_override/0 = ExtResource("4_ob7yv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="stair02" groups=["stair"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="stair02"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stair02/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_xlksk")
@@ -250,7 +251,8 @@ transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -8.295, 1.67966, 5.54)
 mesh = SubResource("ArrayMesh_aws86")
 surface_material_override/0 = ExtResource("4_ob7yv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="stair01" groups=["stair"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="stair01"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stair01/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gvp3u")

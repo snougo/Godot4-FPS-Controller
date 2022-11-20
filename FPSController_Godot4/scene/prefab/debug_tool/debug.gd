@@ -13,8 +13,8 @@ var target : CharacterBody3D
 
 
 func _ready():
-	var refresh_rate = DisplayServer.screen_get_refresh_rate()
-	Engine.max_fps = int(refresh_rate)
+#	var refresh_rate = DisplayServer.screen_get_refresh_rate()
+#	Engine.max_fps = int(refresh_rate)
 	target = get_node(target_node)
 
 
